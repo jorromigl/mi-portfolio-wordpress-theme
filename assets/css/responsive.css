@@ -2,55 +2,6 @@
    Responsive Design
    ============================================ */
 
-/* Mobile-first approach */
-
-/* Tablet: 768px and up */
-@media (min-width: 768px) {
-    h1 {
-        font-size: 3rem;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-    }
-
-    .container {
-        padding: 0 2rem;
-    }
-
-    /* Hide hamburger on tablet+ */
-    #hamburger {
-        display: none;
-    }
-}
-
-/* Desktop: 1024px and up */
-@media (min-width: 1024px) {
-    h1 {
-        font-size: 3.5rem;
-    }
-}
-
-/* Large desktop: 1280px and up */
-@media (min-width: 1280px) {
-    .container {
-        padding: 0 3rem;
-    }
-}
-
-/* Mobile menu */
-#mobile-menu {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height var(--trans-normal), opacity var(--trans-normal);
-}
-
-#mobile-menu.open {
-    max-height: 400px;
-    opacity: 1;
-}
-
 /* Grid layouts */
 .grid {
     display: grid;
@@ -61,23 +12,38 @@
     grid-template-columns: 1fr;
 }
 
-@media (min-width: 768px) {
-    .grid-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 .grid-3 {
     grid-template-columns: 1fr;
 }
 
+/* Tablet: 768px and up */
 @media (min-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.5rem; }
+
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .grid-3 {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Print styles */
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+    h1 { font-size: 3.5rem; }
+}
+
+/* Mobile buttons */
+@media (max-width: 768px) {
+    .w-btn, .btn, .btn-ghost, .w-btn-ghost {
+        padding: 11px 22px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Print */
 @media print {
     header, footer, nav, .no-print {
         display: none;

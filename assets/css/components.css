@@ -140,11 +140,21 @@ button[type="submit"]:hover, input[type="submit"]:hover {
     display: none;
 }
 
+.nav-cta {
+    display: none;
+}
+
 @media (min-width: 768px) {
     .site-nav {
         display: flex !important;
         gap: 8px;
         align-items: center;
+    }
+    .nav-cta {
+        display: block;
+    }
+    #hamburger {
+        display: none !important;
     }
 }
 

@@ -1,9 +1,22 @@
 <?php
 /**
- * Header template
+ * Header template — matches Astro portfolio navbar
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
+
+$home = esc_url( home_url() );
+
+// Navigation links — same as Astro portfolio
+$nav_links = array(
+    array( 'href' => $home . '#inicio',     'label' => 'Inicio' ),
+    array( 'href' => $home . '#mis-libros', 'label' => 'Mis libros' ),
+    array( 'href' => $home . '#sobre-mi',   'label' => 'Sobre mí' ),
+    array( 'href' => $home . '#servicios',  'label' => 'Servicios' ),
+    array( 'href' => $home . '#contacto',   'label' => 'Contacto' ),
+);
+
+$blog_link = $home . '/blog/';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -20,12 +33,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <div class="container">
             <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0;">
                 <!-- Logo/Brand -->
-                <a href="<?php echo esc_url( home_url() ); ?>" style="text-decoration: none;">
-                    <span class="gradient-text-w" style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;"><?php
-                        $name = get_bloginfo('name');
-                        $parts = explode(' ', $name);
-                        echo esc_html( $parts[0] );
-                    ?></span>
+                <a href="<?php echo $home; ?>" style="text-decoration: none;">
+                    <?php
+                    $name = get_bloginfo('name');
+                    $parts = explode(' ', $name);
+                    ?>
+                    <span class="gradient-text-w" style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;"><?php echo esc_html( $parts[0] ); ?></span>
                     <?php if ( count($parts) > 1 ) : ?>
                         <span style="color: var(--w-ivory-dim); font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;"><?php echo esc_html( ' ' . implode(' ', array_slice($parts, 1)) ); ?></span>
                     <?php endif; ?>
@@ -36,15 +49,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
                 <!-- Desktop Navigation -->
                 <nav class="site-nav">
-                    <?php
-                    wp_nav_menu( array(
-                        'theme_location' => 'primary',
-                        'fallback_cb'    => false,
-                        'container'      => false,
-                        'depth'          => 1,
-                    ) );
-                    ?>
+                    <ul>
+                        <?php foreach ( $nav_links as $link ) : ?>
+                            <li><a href="<?php echo esc_url( $link['href'] ); ?>" class="nav-link"><?php echo esc_html( $link['label'] ); ?></a></li>
+                        <?php endforeach; ?>
+                        <li><a href="<?php echo esc_url( $blog_link ); ?>" style="color: var(--w-burgundy-l); font-weight: 600;">Blog</a></li>
+                    </ul>
                 </nav>
+
+                <!-- CTA Desktop -->
+                <div class="nav-cta">
+                    <a href="<?php echo $home; ?>#contacto" class="w-btn" style="padding: 10px 24px; font-size: 0.8rem;"><span>Contactar</span></a>
+                </div>
 
                 <!-- Mobile Hamburger -->
                 <button id="hamburger" aria-label="Menu">
@@ -56,14 +72,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
             <!-- Mobile Menu -->
             <nav id="mobile-menu">
-                <?php
-                wp_nav_menu( array(
-                    'theme_location' => 'primary',
-                    'fallback_cb'    => false,
-                    'container'      => false,
-                    'depth'          => 1,
-                ) );
-                ?>
+                <ul>
+                    <?php foreach ( $nav_links as $link ) : ?>
+                        <li><a href="<?php echo esc_url( $link['href'] ); ?>"><?php echo esc_html( $link['label'] ); ?></a></li>
+                    <?php endforeach; ?>
+                    <li><a href="<?php echo esc_url( $blog_link ); ?>" style="color: var(--w-burgundy-l); font-weight: 600;">Blog</a></li>
+                    <li style="padding-top: 12px;">
+                        <a href="<?php echo $home; ?>#contacto" class="w-btn" style="width: 100%; justify-content: center; font-size: 0.85rem;"><span>Contactar</span></a>
+                    </li>
+                </ul>
             </nav>
         </div>
     </header>

@@ -118,7 +118,9 @@ button[type="submit"]:hover, input[type="submit"]:hover {
     left: 0;
     right: 0;
     z-index: 999;
-    background: transparent;
+    background: rgba(237, 232, 225, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 2px solid var(--w-border);
     transition: all 0.5s ease;
 }
 
@@ -161,7 +163,7 @@ button[type="submit"]:hover, input[type="submit"]:hover {
 .site-nav ul {
     list-style: none;
     display: flex;
-    gap: 8px;
+    gap: 4px;
     margin: 0;
     padding: 0;
 }
@@ -169,12 +171,14 @@ button[type="submit"]:hover, input[type="submit"]:hover {
 .site-nav li a,
 .site-nav .nav-link {
     padding: 8px 16px;
-    font-size: 0.875rem;
-    font-family: var(--font-lora);
-    color: var(--w-ivory-dim);
+    font-size: 0.8rem;
+    font-family: var(--font-display);
+    color: var(--w-ivory);
     border-radius: 6px;
     transition: all 0.3s ease;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     letter-spacing: 0.02em;
 }
 

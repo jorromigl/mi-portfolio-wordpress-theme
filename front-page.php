@@ -21,19 +21,26 @@ if ( ! $sobre_mi_titulo ) $sobre_mi_titulo = 'Sobre Mí';
 
 <main>
     <!-- ═══ Hero Section ═══ -->
-    <section id="inicio" style="padding: 140px 0 80px; text-align: center; position: relative; overflow: hidden;">
+    <section id="inicio" style="padding: 120px 0 60px; position: relative; overflow: hidden;">
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, var(--w-bg) 0%, var(--w-bg2) 100%);"></div>
         <div class="container" style="position: relative; z-index: 1;">
-            <span class="w-label" style="margin-bottom: 24px;">✦ <?php echo esc_html( $hero_subtitulo ); ?></span>
-            <h1 class="gradient-text-w" style="font-size: clamp(2.5rem, 6vw, 5rem); margin: 24px 0 20px; font-weight: 900; font-family: var(--font-display); line-height: 1.1;">
-                <?php echo esc_html( $hero_titulo ); ?>
-            </h1>
-            <p style="font-size: 1.15rem; color: var(--w-ivory-dim); max-width: 550px; margin: 0 auto 40px; font-family: var(--font-lora); line-height: 1.7;">
-                <?php echo esc_html( $hero_subtitulo ); ?>
-            </p>
-            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                <a href="#contacto" class="w-btn"><span>Contactar</span></a>
-                <a href="#sobre-mi" class="w-btn-ghost">Conóceme</a>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 60px; flex-wrap: wrap;">
+                <!-- Left: Text -->
+                <div style="flex: 1; min-width: 300px;">
+                    <h1 class="gradient-text-w" style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; font-family: var(--font-display); line-height: 1.2; margin-bottom: 16px;">
+                        ¡Hola! Soy <?php echo esc_html( $hero_titulo ); ?>, escritora, correctora y lectora editorial.
+                    </h1>
+                    <p style="font-size: 1.1rem; color: var(--w-ivory-dim); font-family: var(--font-lora); line-height: 1.7; margin-bottom: 32px;">
+                        Escribo historias de fantasía, romance histórico e histórica.
+                    </p>
+                    <a href="#sobre-mi" class="w-btn"><span>¡Conóceme mejor!</span></a>
+                </div>
+                <!-- Right: Photo -->
+                <div style="flex-shrink: 0;">
+                    <div style="width: 320px; height: 320px; border-radius: 50%; overflow: hidden; border: 4px solid var(--w-border-glow); box-shadow: 0 12px 40px var(--w-shadow-md);">
+                        <img src="<?php echo MIPO_URL; ?>/assets/images/hero-photo.jpeg" alt="<?php echo esc_attr( $hero_titulo ); ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
